@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import 'react-native-gesture-handler';
 import { StatusBar, StatusBarStyle } from "react-native";
 import { ThemeProvider, useTheme } from "./src/hooks/useThemeContext";
 import { GlobalStyles } from "./src/styles/GlobalStyle";
