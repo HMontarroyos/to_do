@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "project",
+    "name": "toDo",
     "slug": "project",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.hmontarroyos.project"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d1084125-a556-47f2-9f2d-b9df51942f9d"
+      }
     }
   }
 }
