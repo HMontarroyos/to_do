@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Alert, FlatList, Switch } from "react-native";
 import {
   useFonts,
@@ -10,6 +10,7 @@ import * as S from "./styled";
 import { Task } from "../../components";
 import { useTheme } from "../../hooks/useThemeContext";
 import { darkTheme, lightTheme, defaultTheme } from "../../styles/Theme";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface TaskItem {
   id: number;
@@ -30,9 +31,32 @@ export default function Home() {
     Khand_500Medium,
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
+  useEffect(() => {
+    const loadTasks = async () => {
+      try {
+        const storedTasks = await AsyncStorage.getItem("tasks");
+        if (storedTasks) {
+          setTasks(JSON.parse(storedTasks));
+        }
+      } catch (error) {
+        console.error("Erro ao carregar tarefas:", error);
+      }
+    };
+
+    loadTasks();
+  }, []);
+
+  useEffect(() => {
+    const saveTasks = async () => {
+      try {
+        await AsyncStorage.setItem("tasks", JSON.stringify(tasks));
+      } catch (error) {
+        console.error("Erro ao salvar tarefas:", error);
+      }
+    };
+
+    saveTasks();
+  }, [tasks]);
 
   const handleDeleteTask = (taskId: number, taskName: string) => {
     Alert.alert(
@@ -44,6 +68,11 @@ export default function Home() {
           onPress: () => {
             setTasks((prevTasks) =>
               prevTasks.filter((task) => task.id !== taskId)
+            );
+
+            AsyncStorage.setItem(
+              "tasks",
+              JSON.stringify(tasks.filter((task) => task.id !== taskId))
             );
           },
         },
@@ -68,23 +97,34 @@ export default function Home() {
           {
             text: "Prosseguir",
             onPress: () => {
-              setTasks((prevTasks) => [
-                ...prevTasks,
-                { id: prevTasks.length + 1, name: newTaskName },
-              ]);
+              const newTasks = [
+                ...tasks,
+                { id: tasks.length + 1, name: newTaskName },
+              ];
+              setTasks(newTasks);
               setNewTaskName("");
+              AsyncStorage.setItem("tasks", JSON.stringify(newTasks));
             },
           },
         ]
       );
     } else {
-      setTasks((prevTasks) => [
-        ...prevTasks,
-        { id: prevTasks.length + 1, name: newTaskName },
-      ]);
+      const newTasks = [...tasks, { id: tasks.length + 1, name: newTaskName }];
+      setTasks(newTasks);
       setNewTaskName("");
+
+      AsyncStorage.setItem("tasks", JSON.stringify(newTasks));
     }
   };
+
+  const handleDeleteStorage = async () => {
+    //TESTE HML BUTTON
+    await AsyncStorage.removeItem("hasSeenIntroduction");
+  };
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <S.Container
@@ -188,6 +228,10 @@ export default function Home() {
           </>
         )}
       />
+      {/*  TESTE HML BUTTON */}
+      {/*       <S.ButtonCreate onPress={handleDeleteStorage}>
+        <S.TextButton>Excluir Storage </S.TextButton>
+      </S.ButtonCreate> */}
     </S.Container>
   );
 }
