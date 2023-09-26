@@ -229,9 +229,9 @@ export default function Home() {
         )}
       />
       {/*  TESTE HML BUTTON */}
-      {/*       <S.ButtonCreate onPress={handleDeleteStorage}>
+{/*            <S.ButtonCreate onPress={handleDeleteStorage}>
         <S.TextButton>Excluir Storage </S.TextButton>
-      </S.ButtonCreate> */}
+      </S.ButtonCreate>  */}
     </S.Container>
   );
 }
