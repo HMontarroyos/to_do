@@ -16,6 +16,7 @@ export const darkTheme = {
 
 export const defaultTheme = {
   colors: {
+    default: "#c2b79b",
     light: "#FFFFFF",
     confirmColor: "#31CF67",
     cancelColor: "#FF0000",
