@@ -28,14 +28,15 @@
 
 
 <img width="300" alt="introduction" src="https://github.com/HMontarroyos/to_do/assets/60220406/438f4814-3fc5-4193-b7a1-199b2c966d78">
-
+<br>
 <img width="300" alt="mobile home task empty" src="https://github.com/HMontarroyos/to_do/assets/60220406/a20103e9-417c-405d-9127-f893117b569f">
-
+<br>
 <img width="300" alt="mobile home task" src="https://github.com/HMontarroyos/to_do/assets/60220406/fd55a79c-5334-40fa-903b-9f960e7eeb49">
 
 
 <br>
-
+<br>
+<br>
 Essa aplicação consiste em um To-Do feito para o mobile, você consegue criar uma task e após isso pode marcar ela como resolvida ou excluí-la ao acabar a mesma.
 De forma totalmente intuitiva, tendo ainda uma página de introdução que explica como criar cada detalhe, elá também consiste em um switch onde é possível alterar entre o tema Dark Mode ou Light Mode na aplicação, facilitando para o gosto de cada usuário. 
 
@@ -104,14 +105,14 @@ após isso faça o login assim como no expo
 eas login
 ```
 
-Depois rode o seguinte comando já na conectado a sua conta expo 
+Depois rode o seguinte comando já conectado a sua conta expo 
 
 ```sh
 eas build -p android --profile preview
 ```
 Esse comando irá criar o build em apk, graças a configuração de teste do preview no arquivo <i>eas.json</i> na pasta raiz.
 
-Lembrando que isso é so para teste caso for por em alguma na play store o indicado e seguir sem a flag de cima e gerar um build em ABB que é muito mais performatico que o APK para a Play store com o seguinte comando. 
+Lembrando que isso é so para teste, caso for por na play store o indicado e seguir sem a flag de cima e gerar um build em ABB que é muito mais performatico que o APK para a Play store com o seguinte comando. 
 
 ```sh
 eas build -p android
