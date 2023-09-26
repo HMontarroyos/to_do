@@ -85,7 +85,7 @@ npx expo start
 ### <strong>Como usar</strong> 
 <br>
 
-Para Inicializar o Projeto tenha o Aplicativo do Expo instalado [https://expo.dev/](Expo) é utilize seu QR Code para ler o que está no seu editor. 
+Para Inicializar o Projeto tenha o Aplicativo do Expo instalado <a href="https://expo.dev/" target="_blank">Expo</a> é utilize seu QR Code para ler o que está no seu editor. 
 
 <br>
 
@@ -125,7 +125,7 @@ eas build -p ios
 ```
 Eu vou deixar aqui o link do meu APK para android atualizado até o momento com todas as funcionalidades que se encontra nesse repositorio.
 
-[https://drive.google.com/file/d/16uNOXyLjpI_8bNrRxbQPg77EUdqP6P6l/view?usp=sharing](Link)
+ <a href="https://drive.google.com/file/d/16uNOXyLjpI_8bNrRxbQPg77EUdqP6P6l/view?usp=sharing" target="_blank">Link para o APK no Driver</a>
 
 
 <br>
